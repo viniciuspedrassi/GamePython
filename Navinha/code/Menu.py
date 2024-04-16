@@ -3,12 +3,11 @@
 import sys
 
 import pygame.image
-from pygame import K_DOWN
 from pygame.font import Font
 from pygame.rect import Rect
 from pygame.surface import Surface
 
-from code.Const import WIN_WIDTH, C_MIBLUE, C_DARKGREY, MENU_OPTION, C_WHITE, C_YELLOW
+from code.Const import WIN_WIDTH, C_MIBLUE, C_DARKGREY, MENU_OPTION, C_WHITE, C_YELLOW, MENU_OPTION_SPACE
 
 
 class Menu:
@@ -24,14 +23,14 @@ class Menu:
         while True:
             # DESENHAR NA TELA
             self.window.blit(source=self.surf, dest=self.rect)
-            self.menu_text(90, "Navinha", C_MIBLUE, ((WIN_WIDTH / 2), 70))
-            self.menu_text(30, "The Game", C_DARKGREY, ((WIN_WIDTH / 2), 110))
+            self.menu_text(90, "Navinha", C_MIBLUE, (WIN_WIDTH / 2, 70))
+            self.menu_text(36, "The Game", C_DARKGREY, (WIN_WIDTH / 2, 110))
 
             for i in range(len(MENU_OPTION)):
                 if i == menu_option:
-                    self.menu_text(20, MENU_OPTION[i], C_YELLOW, ((WIN_WIDTH / 2), 200 + 30 * i))
+                    self.menu_text(20, MENU_OPTION[i], C_YELLOW, (WIN_WIDTH / 2, MENU_OPTION_SPACE[i]))
                 else:
-                    self.menu_text(20, MENU_OPTION[i], C_WHITE, ((WIN_WIDTH / 2), 200 + 30 * i))
+                    self.menu_text(20, MENU_OPTION[i], C_WHITE, (WIN_WIDTH / 2, MENU_OPTION_SPACE[i]))
             pygame.display.flip()
 
             # VERIFICAR EVENTOS
